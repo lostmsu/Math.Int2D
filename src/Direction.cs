@@ -56,7 +56,7 @@
 
         #region Equality
         public bool Equals(Direction other) => this == other;
-        public override bool Equals(object obj) => obj is Direction other ? other == this : false;
+        public override bool Equals(object obj) => obj is Direction other && other == this;
         public override int GetHashCode() => this.value.GetHashCode();
         /// <summary>
         /// Checks if two directions are equal

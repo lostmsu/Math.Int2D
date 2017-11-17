@@ -11,30 +11,23 @@
         public int X { get; }
         public int Y { get; }
 
+        public static readonly Vector Zero = new Vector();
+
         #region Equality
-        public static bool operator ==(Vector a, Vector b) {
-            return a.X == b.X && a.Y == b.Y;
-        }
+        public static bool operator ==(Vector a, Vector b) => a.X == b.X && a.Y == b.Y;
 
-        public static bool operator !=(Vector a, Vector b) {
-            return a.X != b.X || a.Y != b.Y;
-        }
+        public static bool operator !=(Vector a, Vector b) => a.X != b.X || a.Y != b.Y;
 
-        public bool Equals(Vector other) {
-            return this.X == other.X && this.Y == other.Y;
-        }
+        public bool Equals(Vector other) => this.X == other.X && this.Y == other.Y;
 
-        public override bool Equals(object obj) {
-            if (obj is Vector) {
-                return this.Equals((Vector)obj);
-            }
-
-            return false;
-        }
+        public override bool Equals(object obj) => obj is Vector && this.Equals((Vector)obj);
 
         public override int GetHashCode() => (this.X + 12347).GetHashCode() ^ this.Y.GetHashCode();
         #endregion
 
+        /// <summary>
+        /// Checks if distance to <paramref name="other"/> is exactly 1 (means its next horizontally or vertically)
+        /// </summary>
         public bool IsAdjacentTo(Vector other) {
             int dx = Math.Abs(this.X - other.X), dy = Math.Abs(this.Y - other.Y);
             return (dx == 0 && dy == 1)
@@ -42,11 +35,10 @@
         }
 
         public override string ToString() => this.X + "; " + this.Y;
+        public string ToString(IFormatProvider format) => ((IFormattable)$"{this.X};{this.Y}").ToString(null, format);
 
         public static Vector operator -(Vector a, Vector b) => new Vector(a.X - b.X, a.Y - b.Y);
-
-        public Vector Direction => new Vector(Math.Sign(this.X), Math.Sign(this.Y));
-
         public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
+        public static Vector operator *(Vector a, int scale) => new Vector(a.X * scale, a.Y * scale);
     }
 }
