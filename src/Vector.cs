@@ -35,7 +35,7 @@
         }
 
         public override string ToString() => this.X + "; " + this.Y;
-        public string ToString(IFormatProvider format) => ((IFormattable)$"{this.X};{this.Y}").ToString(null, format);
+        public string ToString(IFormatProvider format) => string.Format(format, "{0};{1}", this.X, this.Y);
 
         public static Vector operator -(Vector a, Vector b) => new Vector(a.X - b.X, a.Y - b.Y);
         public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
