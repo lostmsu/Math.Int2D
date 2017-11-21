@@ -4,6 +4,15 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>Lost.Math.Int2D</AssemblyName>
     <RootNamespace>Lost.Math.Int2D</RootNamespace>
+    <Version>0.1.0</Version>
+    <Authors>Lost</Authors>
+    <Company />
+    <Product>Lost Lib</Product>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/lostmsu/Math.Int2D/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/lostmsu/Math.Int2D</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lostmsu/Math.Int2D.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>math geometry</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
